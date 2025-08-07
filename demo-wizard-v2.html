@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SplitFund Demo Wizard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .step { display: none; }
+    .step.active { display: block; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <section id="demo" class="max-w-3xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-extrabold text-center text-indigo-600 mb-12">Try the SplitFund Demo</h2>
+
+    <div id="step-1" class="step active">
+      <h3 class="text-2xl font-semibold mb-4">1. Name Your Fund</h3>
+      <input type="text" id="fundName" placeholder="e.g. Despoina's ETH Vault" class="w-full border p-3 rounded mb-4"/>
+      <p class="text-gray-700 mb-6">Starting Balance: <strong>5 ETH</strong></p>
+      <button onclick="nextStep(2)" class="bg-indigo-600 text-white px-6 py-3 rounded hover:bg-indigo-500 transition">Next</button>
+    </div>
+
+    <div id="step-2" class="step">
+      <h3 class="text-2xl font-semibold mb-4">2. Add Participants</h3>
+      <input type="text" id="participants" placeholder="e.g. Claudio, Despoina, Nikos" class="w-full border p-3 rounded mb-4"/>
+      <p class="text-gray-700 mb-6">Each participant will have an equal share based on the number of people added.</p>
+      <button onclick="nextStep(3)" class="bg-indigo-600 text-white px-6 py-3 rounded hover:bg-indigo-500 transition">Next</button>
+    </div>
+
+    <div id="step-3" class="step">
+      <h3 class="text-2xl font-semibold mb-4">3. Define a Rule</h3>
+      <label class="block mb-2 font-medium">Action Type:</label>
+      <select id="ruleType" class="w-full border p-3 rounded mb-4" onchange="togglePriceInput()">
+        <option value="price">Sell all if token price reaches target</option>
+        <option value="vote">Manual group decision (withdraw by vote)</option>
+      </select>
+      <div id="priceInput" class="mb-4">
+        <label class="block mb-2 font-medium">Target Price (e.g. 200000 for BTC):</label>
+        <input type="number" id="priceValue" placeholder="Enter target price" class="w-full border p-3 rounded mb-2"/>
+      </div>
+      <label class="block mb-2 font-medium">Required Approval (% of members):</label>
+      <input type="number" id="approvalPercent" value="66" min="1" max="100" class="w-full border p-3 rounded mb-4"/>
+      <button onclick="nextStep(4)" class="bg-indigo-600 text-white px-6 py-3 rounded hover:bg-indigo-500 transition">Next</button>
+    </div>
+
+    <div id="step-4" class="step">
+      <h3 class="text-2xl font-semibold mb-4">4. Simulate Voting</h3>
+      <p class="text-gray-700 mb-4">Proposal: <strong><span id="proposalSummary">...</span></strong></p>
+      <div id="votesOutput" class="mb-4"></div>
+      <p id="voteResult" class="text-gray-800 font-medium mb-6"></p>
+      <button onclick="nextStep(5)" class="bg-indigo-600 text-white px-6 py-3 rounded hover:bg-indigo-500 transition">Show Outcome</button>
+    </div>
+
+    <div id="step-5" class="step">
+      <h3 class="text-2xl font-semibold mb-4">5. Result</h3>
+      <div id="outcomeBox" class="p-4 rounded border-l-4"></div>
+    </div>
+  </section>
+
+  <script>
+    let participantsList = [];
+
+    function nextStep(n) {
+      document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+      document.getElementById('step-' + n).classList.add('active');
+
+      if (n === 4) {
+        participantsList = document.getElementById("participants").value.split(',').map(p => p.trim());
+        const ruleType = document.getElementById("ruleType").value;
+        const price = document.getElementById("priceValue").value;
+        const percent = parseInt(document.getElementById("approvalPercent").value);
+
+        let summary = ruleType === "price"
+          ? `Sell if price reaches $${price}`
+          : `Execute action if ${percent}% agree`;
+
+        document.getElementById("proposalSummary").textContent = summary;
+
+        const myVote = "✅ Yes";
+        let votes = [`You (Creator): ${myVote}`];
+        let yesCount = 1;
+        participantsList.forEach(name => {
+          let vote = Math.random() < 0.7 ? "✅ Yes" : "❌ No";
+          if (vote.includes("Yes")) yesCount++;
+          votes.push(`${name}: ${vote}`);
+        });
+
+        document.getElementById("votesOutput").innerHTML = votes.map(v => `<p class="mb-1">${v}</p>`).join("");
+
+        const needed = Math.ceil((participantsList.length + 1) * percent / 100);
+        const resultText = yesCount >= needed
+          ? `✅ Proposal PASSED with ${yesCount}/${participantsList.length + 1} approvals`
+          : `❌ Proposal FAILED with ${yesCount}/${participantsList.length + 1} approvals`;
+
+        document.getElementById("voteResult").textContent = resultText;
+
+        const passed = yesCount >= needed;
+        const outcomeText = passed
+          ? `🎉 Proposal executed! Funds distributed or moved as requested.`
+          : `⛔ Goal not reached. The fund remains locked.`;
+
+        const outcomeBox = document.getElementById("outcomeBox");
+        outcomeBox.innerHTML = outcomeText;
+        outcomeBox.className = passed
+          ? "p-4 rounded border-l-4 border-green-500 bg-green-100 text-green-700"
+          : "p-4 rounded border-l-4 border-red-500 bg-red-100 text-red-700";
+      }
+    }
+
+    function togglePriceInput() {
+      const rule = document.getElementById("ruleType").value;
+      document.getElementById("priceInput").style.display = rule === "price" ? "block" : "none";
+    }
+  </script>
+
+</body>
+</html>
