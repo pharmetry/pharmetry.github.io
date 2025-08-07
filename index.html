@@ -4,158 +4,90 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SplitFund — Group Wallets for Everyone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      .section-title { @apply text-3xl font-extrabold text-gray-900 mb-10; }
+      .feature-card { @apply bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition; }
+    </style>
   </head>
-  <body class="bg-gray-50 text-gray-900">
+  <body class="bg-white text-gray-900">
 
     <!-- Header -->
-    <header class="bg-white shadow-md">
-      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold text-indigo-600">SplitFund</h1>
-        <a href="#cta" class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm hover:bg-indigo-500 transition">Join Waitlist</a>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-extrabold text-indigo-600 tracking-tight">SplitFund</h1>
+        <a href="#cta" class="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-500 transition">Join Waitlist</a>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-white py-24">
-      <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-          Start a Shared Crypto Wallet <br class="hidden md:block" /> with Friends, Instantly.
+    <section class="bg-gradient-to-b from-white to-gray-50 py-28">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+          Shared Crypto Wallets <br class="hidden md:block" /> for Your Team, Guild, or Crew
         </h2>
-        <p class="text-xl text-gray-600 mb-8">
-          Pool funds, vote on what to do with them, and make every crypto decision as a team — powered by smart contracts.
+        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+          Pool funds. Vote on-chain. Decide together. SplitFund makes group investing secure, transparent, and fast.
         </p>
-        <a href="#cta" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-xl text-lg font-medium shadow-md hover:bg-indigo-500 transition">
-          Create a Fund
+        <a href="#cta" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-indigo-500 transition">
+          Create Your Fund
         </a>
       </div>
     </section>
 
     <!-- Value Proposition -->
-    <section class="bg-gray-50 py-12">
+    <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
         <div>
-          <h3 class="text-2xl font-semibold text-indigo-600 mb-2">Fast</h3>
-          <p class="text-gray-700">Create a group wallet in under 30 seconds. No coding, no friction.</p>
+          <h3 class="text-2xl font-semibold text-indigo-600 mb-2">⚡ Fast</h3>
+          <p class="text-gray-700">Start a fund in under 30 seconds. No setup. No code.</p>
         </div>
         <div>
-          <h3 class="text-2xl font-semibold text-indigo-600 mb-2">Collaborative</h3>
-          <p class="text-gray-700">Invite friends, vote on actions, and execute together on-chain.</p>
+          <h3 class="text-2xl font-semibold text-indigo-600 mb-2">🤝 Collaborative</h3>
+          <p class="text-gray-700">Everyone contributes. Everyone votes. It’s a DAO for your group.</p>
         </div>
         <div>
-          <h3 class="text-2xl font-semibold text-indigo-600 mb-2">Secure</h3>
-          <p class="text-gray-700">Smart contract-based vaults ensure funds are safe and transparent.</p>
+          <h3 class="text-2xl font-semibold text-indigo-600 mb-2">🔒 Secure</h3>
+          <p class="text-gray-700">Powered by smart contracts. Transparent and trustless by design.</p>
         </div>
       </div>
     </section>
-
     <!-- Features Section -->
-    <section class="bg-white py-20">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-extrabold text-gray-900 mb-10">Everything You Need to Fund Together</h2>
-        <div class="grid md:grid-cols-3 gap-10">
-          <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 class="text-xl font-semibold text-indigo-600 mb-3">Smart Group Wallets</h3>
-            <p class="text-gray-700">Deploy a shared wallet for your crew with built-in vote-based controls — no need to trust any one person.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 class="text-xl font-semibold text-indigo-600 mb-3">On-Chain Voting</h3>
-            <p class="text-gray-700">Decide together how to use the pooled funds — staking, investing, gifting or holding.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-            <h3 class="text-xl font-semibold text-indigo-600 mb-3">Instant Invites</h3>
-            <p class="text-gray-700">Share a link to onboard members via wallet or email — participation is fast and easy.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
     <section class="bg-gray-50 py-20">
-      <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-extrabold text-gray-900 mb-10">How It Works</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <span class="text-indigo-600 font-bold text-2xl">1</span>
-            <h4 class="mt-2 font-semibold text-lg">Create a Fund</h4>
-            <p class="text-gray-700 mt-1">Launch a smart group wallet in seconds, no coding required.</p>
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="section-title">Everything You Need to Fund Together</h2>
+        <div class="grid md:grid-cols-3 gap-10">
+          <div class="feature-card">
+            <h3 class="text-xl font-semibold text-indigo-600 mb-3">Smart Group Wallets</h3>
+            <p class="text-gray-700">Launch a secure group wallet in seconds — no manual setup or shared keys.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <span class="text-indigo-600 font-bold text-2xl">2</span>
-            <h4 class="mt-2 font-semibold text-lg">Invite Friends</h4>
-            <p class="text-gray-700 mt-1">Send them a join link — anyone with a wallet can join and contribute.</p>
+          <div class="feature-card">
+            <h3 class="text-xl font-semibold text-indigo-600 mb-3">On-Chain Voting</h3>
+            <p class="text-gray-700">Create proposals and vote transparently — all managed by smart contracts.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <span class="text-indigo-600 font-bold text-2xl">3</span>
-            <h4 class="mt-2 font-semibold text-lg">Vote on Actions</h4>
-            <p class="text-gray-700 mt-1">Propose and vote on how to use the funds: stake, invest, or split.</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <span class="text-indigo-600 font-bold text-2xl">4</span>
-            <h4 class="mt-2 font-semibold text-lg">Execute On-Chain</h4>
-            <p class="text-gray-700 mt-1">Once the threshold is met, SplitFund executes the group decision via smart contract.</p>
+          <div class="feature-card">
+            <h3 class="text-xl font-semibold text-indigo-600 mb-3">Invite Anyone</h3>
+            <p class="text-gray-700">Friends, family, DAO members — just send a link to get started.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Use Cases -->
-    <section class="bg-white py-20">
-      <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-10">Use Cases</h2>
-        <div class="grid md:grid-cols-2 gap-10">
-          <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-            <h3 class="text-xl font-semibold text-indigo-600 mb-2">👨‍👩‍👧‍👦 Family Fund</h3>
-            <p class="text-gray-700">Parents and siblings pool money for a vacation or investment — everyone votes on how and when to spend it.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-            <h3 class="text-xl font-semibold text-indigo-600 mb-2">🎮 Guild Treasury</h3>
-            <p class="text-gray-700">A gaming guild shares tournament rewards and decides whether to upgrade equipment or fund the next entry.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-            <h3 class="text-xl font-semibold text-indigo-600 mb-2">🧠 Investment Club</h3>
-            <p class="text-gray-700">A few friends pool ETH and vote monthly on which tokens or DeFi projects to invest in — and share the gains.</p>
-          </div>
-          <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-            <h3 class="text-xl font-semibold text-indigo-600 mb-2">🎉 Event Planning</h3>
-            <p class="text-gray-700">Use SplitFund to collect money for a party, NFT drop, or community event — and decide together how it’s used.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final Call to Action -->
+    <!-- Final CTA -->
     <section id="cta" class="bg-indigo-600 py-20 text-white text-center">
       <div class="max-w-3xl mx-auto px-6">
-        <h2 class="text-3xl font-extrabold mb-4">Start Your First Group Fund Today</h2>
-        <p class="text-lg mb-8">It only takes 30 seconds. No seed phrase. No stress. Just friends and crypto.</p>
-        <a href="#" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded-xl text-lg font-semibold hover:bg-gray-100 transition">Join the Waitlist</a>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="bg-white py-20">
-      <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-extrabold text-center text-gray-900 mb-10">FAQs</h2>
-        <div class="space-y-8">
-          <div>
-            <h4 class="font-semibold text-lg text-indigo-600 mb-1">Do I need to know crypto to use SplitFund?</h4>
-            <p class="text-gray-700">Nope. If you can join a group chat, you can start a SplitFund. It’s built for everyone.</p>
-          </div>
-          <div>
-            <h4 class="font-semibold text-lg text-indigo-600 mb-1">What happens if someone disappears after contributing?</h4>
-            <p class="text-gray-700">The smart contract controls the funds. Actions only execute once the group votes. No one can run off with the money.</p>
-          </div>
-          <div>
-            <h4 class="font-semibold text-lg text-indigo-600 mb-1">Can we withdraw or split the funds later?</h4>
-            <p class="text-gray-700">Yes — your group can vote to split the funds at any time, equally or based on share.</p>
-          </div>
-        </div>
+        <h2 class="text-3xl font-extrabold mb-4">Start Your First Group Fund</h2>
+        <p class="text-lg mb-8">Fast. Secure. On-chain. Get your fund going in less than a minute.</p>
+        <a href="#" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">
+          Join the Waitlist
+        </a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 py-8">
+    <footer class="bg-white border-t py-8">
       <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left text-gray-600 text-sm">
         <p>© 2025 SplitFund. All rights reserved.</p>
         <div class="flex gap-4 mt-4 md:mt-0">
